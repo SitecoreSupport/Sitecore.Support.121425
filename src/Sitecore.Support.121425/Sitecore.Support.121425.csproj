@@ -40,25 +40,24 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Sitecore.Forms.Mvc, Version=8.1.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\WFFM.Sitecore.Forms.Mvc.8.1.3\lib\Sitecore.Forms.Mvc.dll</HintPath>
-      <Private>False</Private>
+    <Reference Include="Sitecore.Forms.Core">
+      <HintPath>..\..\lib\Sitecore.Forms.Core.dll</HintPath>
     </Reference>
-    <Reference Include="Sitecore.Kernel">
+    <Reference Include="Sitecore.Forms.Custom">
+      <HintPath>..\..\lib\Sitecore.Forms.Custom.dll</HintPath>
+    </Reference>
+    <Reference Include="Sitecore.Forms.Mvc">
+      <HintPath>..\..\lib\Sitecore.Forms.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="Sitecore.Kernel, Version=8.1.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\SC.Sitecore.Kernel.8.1.2\lib\Sitecore.Kernel.dll</HintPath>
       <Private>False</Private>
     </Reference>
-    <Reference Include="Sitecore.Forms.Core">
-      <HintPath>..\packages\WFFM.Sitecore.Forms.Core.8.1.3\lib\Sitecore.Forms.Core.dll</HintPath>
-      <Private>False</Private>
+    <Reference Include="Sitecore.Mvc">
+      <HintPath>..\..\lib\Sitecore.Mvc.dll</HintPath>
     </Reference>
-    <Reference Include="Sitecore.Mvc, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\SC.Sitecore.Mvc.8.1.3\lib\Sitecore.Mvc.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="Sitecore.WFFM.Abstractions, Version=8.1.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\WFFM.Sitecore.WFFM.Abstractions.8.1.3\lib\Sitecore.WFFM.Abstractions.dll</HintPath>
-      <Private>False</Private>
+    <Reference Include="Sitecore.WFFM.Abstractions">
+      <HintPath>..\..\lib\Sitecore.WFFM.Abstractions.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -68,25 +67,27 @@
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.Extensions" />
-    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <HintPath>..\packages\SC.System.Web.Helpers.8.1.3\lib\System.Web.Helpers.dll</HintPath>
-      <Private>False</Private>
+    <Reference Include="System.Web.Helpers">
+      <HintPath>..\..\lib\System.Web.Helpers.dll</HintPath>
     </Reference>
-    <Reference Include="System.Web.Mvc, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <HintPath>..\packages\SC.System.Web.Mvc.8.1.3\lib\System.Web.Mvc.dll</HintPath>
-      <Private>False</Private>
+    <Reference Include="System.Web.Mvc, Version=5.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\lib\System.Web.Mvc.dll</HintPath>
     </Reference>
-    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <HintPath>..\packages\SC.System.Web.WebPages.8.1.3\lib\System.Web.WebPages.dll</HintPath>
-      <Private>False</Private>
+    <Reference Include="System.Web.WebPages">
+      <HintPath>..\..\lib\System.Web.WebPages.dll</HintPath>
     </Reference>
     <Reference Include="System.Xml" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Xml.Linq" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Forms\Mvc\Attributes\FormController.cs" />
+    <Compile Include="Forms\Mvc\Controllers\Filters\SubmittedFormHandler.cs" />
     <Compile Include="Forms\Mvc\Controllers\Filters\WffmValidateAntiForgeryTokenAttribute.cs" />
     <Compile Include="Forms\Mvc\Controllers\FormController.cs" />
+    <Compile Include="Forms\Mvc\Controllers\ModelBinders\FormModelBinder.cs" />
+    <Compile Include="Forms\Mvc\Routes\InitializeRoutes.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -95,7 +96,7 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
-    <None Include="packages.config" />
+    <Content Include="packages.config" />
     <None Include="web.config" />
   </ItemGroup>
   <PropertyGroup>
